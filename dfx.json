@@ -1,8 +1,8 @@
 {
   "canisters": {
-    "demo_backend": {
-      "candid": "src/demo_backend/demo_backend.did",
-      "package": "demo_backend",
+    "demo1": {
+      "candid": "src/demo1/demo1.did",
+      "package": "demo1",
       "type": "rust"
     }
   },
