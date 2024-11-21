@@ -2,6 +2,7 @@ use candid::Nat;
 use ic_cdk::api::management_canister::main::raw_rand;
 use std::time::Duration;
 
+// NOTE: The thread_local! variable is not stored in the stable memory and is not persisted across canister upgrades.
 thread_local! {
     static CURRENT_RANDOM_NUMBER: std::cell::RefCell<Nat> = std::cell::RefCell::new(Nat::from(0u8));
 }
@@ -11,8 +12,8 @@ async fn init() {
     ic_cdk_timers::set_timer_interval(Duration::from_secs(5), generate_new_number);
 }
 
- fn generate_new_number() {
-    let _ = ic_cdk::spawn(async {
+fn generate_new_number() {
+    ic_cdk::spawn(async {
         let random_bytes = raw_rand().await.unwrap().0;
         if !random_bytes.is_empty() {
             CURRENT_RANDOM_NUMBER.with_borrow_mut(|n| {
