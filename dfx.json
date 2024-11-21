@@ -4,6 +4,11 @@
       "candid": "src/demo1/demo1.did",
       "package": "demo1",
       "type": "rust"
+    },
+    "demo2": {
+      "candid": "src/demo2/demo2.did",
+      "package": "demo2",
+      "type": "rust"
     }
   },
   "defaults": {

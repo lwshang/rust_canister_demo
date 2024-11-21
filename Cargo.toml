@@ -1,5 +1,3 @@
 [workspace]
-members = [
-    "src/demo1"
-]
+members = ["src/demo1", "src/demo2"]
 resolver = "2"

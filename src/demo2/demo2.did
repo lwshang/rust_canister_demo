@@ -1,0 +1,3 @@
+service : {
+    "get_icp_info": () -> (text);
+}
